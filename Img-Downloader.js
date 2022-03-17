@@ -11,7 +11,7 @@
     'use strict';
 
     document.addEventListener("click", function(e){
-        if(!e.ctrlKey)
+        if(!e.ctrlKey || e.altKey)
             return;
 
         let imgNode = (e.target.tagName == "IMG") ? e.target : e.target.querySelector("img");
