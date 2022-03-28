@@ -4,6 +4,7 @@
 // @description  try to take over the world!
 // @author       Me
 // @match        http*://*/*
+// @noframes
 // @grant        GM_download
 // ==/UserScript==
 
