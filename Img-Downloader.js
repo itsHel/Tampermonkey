@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Img Downloader
-// @version      1.0.0
-// @description  try to take over the world!
+// @version      1.0.1
+// @description  Allows you to download images with Ctrl + click
 // @author       Me
 // @match        http*://*/*
 // @noframes
@@ -11,34 +11,33 @@
 (function(){
     'use strict';
 
+    const svgAllowed = true;
+
     document.addEventListener("click", function(e){
         if(!e.ctrlKey || e.altKey)
             return;
 
         let imgNode = (e.target.tagName == "IMG") ? e.target : e.target.querySelector("img");
+        
+        if(!imgNode && svgAllowed){
+            imgNode = (e.target.tagName == "SVG") ? e.target : e.target.querySelector("svg");
+        }
 
         if(!imgNode)
             return;
 
         e.preventDefault();
+        e.stopImmediatePropagation();
 
         let url = imgNode.src.replace(/\?.*/, "");
 
         let img = {
             url: url,
-            name: url.slice(url.lastIndexOf("/") + 1, url.length)
-          };
+            // Remove extension AND all dots from name otherwise some extensions won't be downloaded
+            // Extension will be added automatically
+            name: url.slice(url.lastIndexOf("/") + 1, url.length).replace(/\.[^.]*$/, "").replace(/\./g, "")
+        };
+
         GM_download(img);
-
-        return;
-
-        let url2 = imgNode.src;
-        let link = document.createElement("a");
-        let filename = url.slice(url2.lastIndexOf("/") + 1, url2.length);
-
-        link.href = url2;
-        link.download = filename;
-
-        link.click();
     });
 })();

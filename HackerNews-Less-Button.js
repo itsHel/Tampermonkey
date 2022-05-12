@@ -1,8 +1,7 @@
 // ==UserScript==
 // @name         HackerNews Less Button
-// @namespace    http://tampermonkey.net/
-// @version      1.0
-// @description  try to take over the world!
+// @version      1.0.1
+// @description  Add "Less" which works as reversed "More" button
 // @author       Hel
 // @match        *news.ycombinator.com/*
 // ==/UserScript==
