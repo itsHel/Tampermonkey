@@ -1,4 +1,4 @@
-### Copies tampermonkey version of document's script into clipboard
+## Copies tampermonkey version of document's script into clipboard
 
 Takes everything between "// ==UserScript==" and "<\/script>" 
 
