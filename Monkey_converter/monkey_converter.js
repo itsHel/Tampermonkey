@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Monkey Converter
 // @version      1.0.1
-// @description  Copies tampermonkey version of document into clipboard     // Takes everything between "// ==UserScript==" and "<\/script>" <br>/*  monkeyignore */ - ignores everything between those tags (with one space) /*  monkeyignore */     // Starts search at html
+// @description  Copies tampermonkey version of document's script into clipboard     // Takes everything between "// ==UserScript==" and "<\/script>" <br>/*  monkeyignore */ - ignores everything between those tags (with one space) /*  monkeyignore */     // Starts search at html
 // @author       Me
 // @match        file:///*.html
 // @grant        GM_addStyle
